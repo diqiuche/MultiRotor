@@ -1,9 +1,0 @@
-Output: Bill of Materials
-Type  : BOM
-From  : Variant [[No Variations]] of Project [MultiRotor.PrjPCB]
-
-
-Files Generated   : 0
-Documents Printed : 0
-
-Finished Output Generation At 23:58:31 On 2015-9-25
