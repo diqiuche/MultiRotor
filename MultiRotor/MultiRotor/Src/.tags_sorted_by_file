@@ -1,0 +1,18 @@
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+MX_ADC1_Init	main.c	/^void MX_ADC1_Init(void)$/;"	f
+MX_GPIO_Init	main.c	/^void MX_GPIO_Init(void)$/;"	f
+MX_SPI1_Init	main.c	/^void MX_SPI1_Init(void)$/;"	f
+MX_TIM2_Init	main.c	/^void MX_TIM2_Init(void)$/;"	f
+MX_USART1_UART_Init	main.c	/^void MX_USART1_UART_Init(void)$/;"	f
+SystemClock_Config	main.c	/^void SystemClock_Config(void)$/;"	f
+assert_failed	main.c	/^void assert_failed(uint8_t* file, uint32_t line)$/;"	f
+hadc1	main.c	/^ADC_HandleTypeDef hadc1;$/;"	v
+hspi1	main.c	/^SPI_HandleTypeDef hspi1;$/;"	v
+htim2	main.c	/^TIM_HandleTypeDef htim2;$/;"	v
+huart1	main.c	/^UART_HandleTypeDef huart1;$/;"	v
+main	main.c	/^int main(void)$/;"	f

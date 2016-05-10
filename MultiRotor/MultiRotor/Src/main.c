@@ -31,10 +31,11 @@
   ******************************************************************************
   */
 /* Includes ------------------------------------------------------------------*/
+
 #include "stm32f1xx_hal.h"
 
 /* USER CODE BEGIN Includes */
-
+#include "config.h"//包含所有的驱动头文件
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -91,20 +92,26 @@ int main(void)
   MX_USART1_UART_Init();
 
   /* USER CODE BEGIN 2 */
-
+  LedInit();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-  /* USER CODE END WHILE */
+    /* USER CODE END WHILE */
 
-  /* USER CODE BEGIN 3 */
-
+    /* USER CODE BEGIN 3 */
+    LEDCtrl.event = E_LOST_RC;
+    LEDFSM();
+    HAL_Delay(100);
+		UartSendBuffer("aaa", 3);
+    // LEDA_troggle;
+    // HAL_Delay(100);
+    // LEDB_troggle;
+    // HAL_Delay(100);
   }
   /* USER CODE END 3 */
-
 }
 
 /** System Clock Configuration
@@ -116,11 +123,12 @@ void SystemClock_Config(void)
   RCC_ClkInitTypeDef RCC_ClkInitStruct;
   RCC_PeriphCLKInitTypeDef PeriphClkInit;
 
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.OscillatorType      = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState            = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = 16;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  RCC_OscInitStruct.PLL.PLLState        = RCC_PLL_NONE;
   HAL_RCC_OscConfig(&RCC_OscInitStruct);
+
 
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_SYSCLK;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
@@ -133,7 +141,7 @@ void SystemClock_Config(void)
   PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV2;
   HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit);
 
-  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
+  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq() / 1000);
 
   HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
 
@@ -142,11 +150,10 @@ void SystemClock_Config(void)
 /* ADC1 init function */
 void MX_ADC1_Init(void)
 {
-
   ADC_ChannelConfTypeDef sConfig;
 
-    /**Common config 
-    */
+  /**Common config
+  */
   hadc1.Instance = ADC1;
   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
   hadc1.Init.ContinuousConvMode = DISABLE;
@@ -156,8 +163,8 @@ void MX_ADC1_Init(void)
   hadc1.Init.NbrOfConversion = 1;
   HAL_ADC_Init(&hadc1);
 
-    /**Configure Regular Channel 
-    */
+  /**Configure Regular Channel
+  */
   sConfig.Channel = ADC_CHANNEL_4;
   sConfig.Rank = 1;
   sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
@@ -220,9 +227,9 @@ void MX_USART1_UART_Init(void)
 
 }
 
-/** Configure pins as 
-        * Analog 
-        * Input 
+/** Configure pins as
+        * Analog
+        * Input
         * Output
         * EVENT_OUT
         * EXTI
@@ -237,12 +244,12 @@ void MX_GPIO_Init(void)
   __GPIOA_CLK_ENABLE();
   __GPIOB_CLK_ENABLE();
 
-  /*Configure GPIO pins : PB0 PB1 PB2 PB11 
-                           PB12 PB13 PB4 PB5 
+  /*Configure GPIO pins : PB0 PB1 PB2 PB11
+                           PB12 PB13 PB4 PB5
                            PB6 PB7 PB8 PB9 */
-  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_11 
-                          |GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_4|GPIO_PIN_5 
-                          |GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9;
+  GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_11
+                        | GPIO_PIN_12 | GPIO_PIN_13 | GPIO_PIN_4 | GPIO_PIN_5
+                        | GPIO_PIN_6 | GPIO_PIN_7 | GPIO_PIN_8 | GPIO_PIN_9;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -275,10 +282,10 @@ void assert_failed(uint8_t* file, uint32_t line)
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
-*/ 
+*/
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
