@@ -1,7 +1,9 @@
 #ifndef __config_H
 #define __config_H
 
+#include "SYS_Init.h"
 #include "Led.h"
+#include "UART1.h"
 // #include "BT.h"
 // #include "extern_variable.h"
 // #include "MPU6050.h"
@@ -15,7 +17,7 @@
 // #include "stmflash.h"
 // #include "math.h"
 // #include "stdio.h"
- #include "UART.h"
+
 // #include "stm32f10x_usart.h"
 // #include "ReceiveData.h"
 // #include "Battery.h"

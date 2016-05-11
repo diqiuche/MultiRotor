@@ -548,9 +548,9 @@
               <FilePath>..\HardWareDriver\C\Led.c</FilePath>
             </File>
             <File>
-              <FileName>UART.c</FileName>
+              <FileName>UART1.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HardWareDriver\C\UART.c</FilePath>
+              <FilePath>..\HardWareDriver\C\UART1.c</FilePath>
             </File>
           </Files>
         </Group>
