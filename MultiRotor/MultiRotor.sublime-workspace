@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"for",
+				"for	Arduino for"
+			],
+			[
 				"in",
 				"include	(UART1.h)"
 			],
@@ -114,10 +118,6 @@
 			[
 				"out",
 				"output"
-			],
-			[
-				"for",
-				"for	C/C++ for"
 			],
 			[
 				"le",
@@ -248,59 +248,11 @@
 	"buffers":
 	[
 		{
-			"contents": "#ifndef __UART1_H_\n#define __UART1_H_\n\n#include \"stm32f1xx_hal.h\"\n\n// // USART Receiver buffer\n// #define RX_BUFFER_SIZE   128\n// #define TX_BUFFER_SIZE   128\n// extern unsigned char rx_buffer[RX_BUFFER_SIZE];\n// extern unsigned char tx_buffer[TX_BUFFER_SIZE];\n\n/* USART1 init function */\nvoid MX_USART1_UART_Init(void);\n\n// typedef struct\n// {\n//   uint16_t volatile Wd_Indx;\n//   uint16_t volatile Rd_Indx;\n//   uint16_t Mask;\n//   uint8_t *pbuf;\n// }UartBuf;\n\n// extern UartBuf UartTxbuf;//»·ÐÎ·¢ËÍ½á¹¹Ìå\n// extern UartBuf UartRxbuf;//»·ÐÎ½ÓÊÕ½á¹¹Ìå\n\n// extern uint8_t flyLogF;\n\n\n\n\n// void UartBufClear(UartBuf *Ringbuf);\n\n// void UART1NVIC_Configuration(void);\n// void UART1_init(u32 pclk2,u32 bound);\n// void UART1_Put_Char(unsigned char DataToSend);\n// uint8_t Uart1_Put_Char(unsigned char DataToSend);\n\n\n\n\n// extern UartBuf UartTxbuf;\n// extern UartBuf UartRxbuf;\n// extern uint8_t UartBuf_RD(UartBuf *Ringbuf);\n// extern uint16_t UartBuf_Cnt(UartBuf *Ringbuf);\n// extern void UartBuf_WD(UartBuf *Ringbuf,uint8_t DataIn);\n// void UartSendBuffer(uint8_t *dat, uint8_t len);\n\n#endif\n\n\n",
-			"file": "MultiRotor/HardWareDriver/H/UART1.h",
-			"file_size": 1140,
-			"file_write_time": 131074024077392863,
+			"file": "/D/Program Files (x86)/STMicroelectronics/STM32Cube/STM32CubeUpdater/STM32Cube_FW_F1_V1.2.0/Projects/STM32VL-Discovery/Examples/ADC/ADC_Regular_injected_groups/Src/main.c",
 			"settings":
 			{
-				"buffer_size": 1090,
-				"line_ending": "Windows",
-				"scratch": true
-			}
-		},
-		{
-			"file": "MultiRotor/HardWareDriver/C/sysinit.c",
-			"settings":
-			{
-				"buffer_size": 76,
+				"buffer_size": 24177,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "#ifndef _Led_H_\n#define _Led_H_\n\n#include \"stm32f1xx_hal.h\"\n\n#define LED_NUM 2\n#define LA	    0x01\n#define LB      0x02\n\n#define E_READY       0\n#define E_CALI        1\n#define E_BAT_LOW     2\n#define E_CALI_FAIL   3\n#define E_LOST_RC     4\n#define E_AUTO_LANDED 5\n#define E_BatChg      6\n\ntypedef union {\n	uint8_t byte;\n	struct\n	{\n		uint8_t A        	: 1;\n		uint8_t B        	: 1;\n		uint8_t reserved 	: 2;\n	} bits;\n} LEDBuf_t;\n\ntypedef struct Led_tt\n{\n	uint8_t  event;\n	uint8_t  state;\n	uint16_t cnt;\n} LED_t;\n\n#define LedA_on      HAL_GPIO_WritePin(GPIOB,  GPIO_PIN_12, GPIO_PIN_RESET)\n#define LedA_off     HAL_GPIO_WritePin(GPIOB,  GPIO_PIN_12, GPIO_PIN_SET)\n\n#define LedB_on      HAL_GPIO_WritePin(GPIOB,  GPIO_PIN_13, GPIO_PIN_RESET)\n#define LedB_off     HAL_GPIO_WritePin(GPIOB,  GPIO_PIN_13, GPIO_PIN_SET)\n\n#define LEDA_troggle HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_12)\n#define LEDB_troggle HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_13)\n\nextern LED_t LEDCtrl;\n\nvoid LedInit(void);   //Led³õÊ¼»¯º¯ÊýÍâ²¿ÉùÃ÷\nvoid LEDFSM(void);\nvoid LedFlash(void);\n\n#endif\n",
-			"file": "MultiRotor/HardWareDriver/H/Led.h",
-			"file_size": 1102,
-			"file_write_time": 131074023833504760,
-			"settings":
-			{
-				"buffer_size": 1052,
-				"line_ending": "Windows",
-				"scratch": true
-			}
-		},
-		{
-			"contents": "/*------------------------------------\n                   _ooOoo_\n                  o8888888o\n                  88\" . \"88\n                  (| -_- |)\n                  O\\  =  /O\n               ____/`---'\\____\n             .'  \\|     |//  `.\n            /  \\|||  :  |||//  \\\n           /  _||||| -:- |||||-  \\\n           |   | \\\\  -  /// |   |\n           | \\_|  ''\\---/''  |   |\n           \\  .-\\__  `-`  ___/-. /\n         ___`. .'  /--.--\\  `. . __\n      .\"\" '<  `.___\\_<|>_/___.'  >'\"\".\n     | | :  `- \\`.;`\\ _ /`;.`/ - ` : | |\n     \\  \\ `-.   \\_ __\\ /__ _/   .-` /  /\n======`-.____`-.___\\_____/___.-`____.-'======\n                   `=---='\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           佛祖保佑       永无BUG\n\n文件名：Led.h\n编写者：WJ\n作者E-mail：cqrg01@163.com\n编译环境：MDK 5.0\n版本号：1.0\n初版时间:2016-5-10\n修改时间：\n说明：\n1.飞控上led IO口初始化\n2.初始化默认关闭所有LED灯\n------------------------------------*/\n#include \"Led.h\"\n//#include \"config.h\"\n////#include \"UART1.h\"\n\nLED_t LEDCtrl;\n//接口显存\nLEDBuf_t LEDBuf;\n\n/****************************************************************************\n*  函数名称:  Led初始化函数\n*  功    能:  1.配置Led接口IO输出方向\n              2.关闭所有Led(开机默认方式)\n*  入口参数:\n*  返    回:\n*  依    赖:\n*  作    者:  WJ\n*  时    间:  2016-5-10 20:34:08\n*  修改时间:\n*  说    明:  Led接口：\n              Led1-- > PB12\n              Led2-- > PB13\n              对应IO = 0，灯亮\n****************************************************************************/\n\nvoid LedInit(void)\n{\n  LedA_off;\n  LedB_off;\n  //printf(\"状态LED灯初始化完成...\\r\\n\");\n}\n\n//底层更新 ，10Hz\nvoid LEDReflash(void)\n{\n  if (LEDBuf.bits.A)\n    LedA_on;\n  else\n    LedA_off;\n\n  if (LEDBuf.bits.B)\n    LedB_on;\n  else\n    LedB_off;\n}\n\n//事件驱动层\nvoid LEDFSM(void)\n{\n//  static uint16_t cnt=0;\n//  uint8_t event=0;\n\n  switch (LEDCtrl.event)\n  {\n  case E_READY:\n    if (++LEDCtrl.cnt >= 3)   //0 1 2 in loop, 0 on ,else off\n      LEDCtrl.cnt = 0;\n    if (LEDCtrl.cnt == 0)\n      LEDBuf.byte = LA | LB;\n    else\n      LEDBuf.byte = 0;\n    break;\n  case E_CALI:\n    LEDBuf.byte = LA | LB;\n    break;\n  case E_BAT_LOW:\n    if (++LEDCtrl.cnt >= 3)   //0 1  in loop\n      LEDCtrl.cnt = 0;\n    if (LEDCtrl.cnt == 0)\n      LEDBuf.byte = 0x03;\n    else\n      LEDBuf.byte = 0;\n    break;\n  case E_CALI_FAIL:\n    if (++LEDCtrl.cnt >= 4)\n      LEDCtrl.cnt = 0;\n    if (LEDCtrl.cnt < 2)\n      LEDBuf.byte = LA ;\n    else\n      LEDBuf.byte = LB;\n    break;\n  case E_LOST_RC:\n    if (++LEDCtrl.cnt >= 4)\n      LEDCtrl.cnt = 0;\n    LEDBuf.byte = 1 << LEDCtrl.cnt ;\n//        if(LEDCtrl.cnt==0)\n//            LEDBuf.byte =LA;\n//        else\n//            LEDBuf.byte =0;\n    break;\n  case E_AUTO_LANDED:\n    LEDBuf.byte = 0x03;\n    break;\n\n  case E_BatChg:\n    LEDBuf.byte = 0x00;\n    break;\n\n  }\n\n  LEDReflash();\n}\n",
-			"file": "MultiRotor/HardWareDriver/C/Led.c",
-			"file_size": 2961,
-			"file_write_time": 131073737756531562,
-			"settings":
-			{
-				"buffer_size": 2695,
-				"line_ending": "Windows",
-				"scratch": true
-			}
-		},
-		{
-			"contents": "/*------------------------------------\n                   _ooOoo_\n                  o8888888o\n                  88\" . \"88\n                  (| -_- |)\n                  O\\  =  /O\n               ____/`---'\\____\n             .'  \\|     |//  `.\n            /  \\|||  :  |||//  \\\n           /  _||||| -:- |||||-  \\\n           |   | \\\\  -  /// |   |\n           | \\_|  ''\\---/''  |   |\n           \\  .-\\__  `-`  ___/-. /\n         ___`. .'  /--.--\\  `. . __\n      .\"\" '<  `.___\\_<|>_/___.'  >'\"\".\n     | | :  `- \\`.;`\\ _ /`;.`/ - ` : | |\n     \\  \\ `-.   \\_ __\\ /__ _/   .-` /  /\n======`-.____`-.___\\_____/___.-`____.-'======\n                   `=---='\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           ·ð×æ±£ÓÓ       ÓÀÎÞBUG\nÎÄ¼þÃû£ºuart1.c\n±àÐ´Õß£ºWJ\n×÷ÕßE-mail£ºcqrg01@163.com\n±àÒë»·¾³£ºMDK-ARM v5.1\n°æ±¾ºÅ£ºv1.0\n³õ°æÊ±¼ä: 2016-5-11\nÐÞ¸ÄÊ±¼ä£º\nËµÃ÷£º\n1.\n------------------------------------*/\n\n#include \"uart1.h\"\n#include \"stdio.h\"\n//#include \"stm32f1xx_hal.h\"\n\nextern UART_HandleTypeDef huart1;\n\n#ifdef __GNUC__\n#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)\n#else\n#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)\n#endif\n\n/* USART1 init function */\nvoid MX_USART1_UART_Init(void)\n{\n\n  huart1.Instance = USART1;\n  huart1.Init.BaudRate = 115200;\n  huart1.Init.WordLength = UART_WORDLENGTH_8B;\n  huart1.Init.StopBits = UART_STOPBITS_1;\n  huart1.Init.Parity = UART_PARITY_NONE;\n  huart1.Init.Mode = UART_MODE_TX_RX;\n  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;\n  huart1.Init.OverSampling = UART_OVERSAMPLING_16;\n  HAL_UART_Init(&huart1);\n\n}\n\nPUTCHAR_PROTOTYPE\n{\n	HAL_UART_Transmit(&huart1 , (uint8_t *)&ch, 1, 0xFFFF);\n	return ch;\n}\n\n",
-			"file": "MultiRotor/HardWareDriver/C/UART1.c",
-			"file_size": 1707,
-			"file_write_time": 131074014114072193,
-			"settings":
-			{
-				"buffer_size": 1641,
-				"line_ending": "Windows",
-				"scratch": true
 			}
 		}
 	],
@@ -631,9 +583,30 @@
 	],
 	"file_history":
 	[
+		"/F/Users/WJ/Desktop/car_test.c",
+		"/F/技术研究/源代码/arduino/Arduino代码例程/cLED/cLED.ino",
+		"/D/Program Files (x86)/arduino-1.0.6/examples/01.Basics/Blink/Blink.ino",
+		"/F/技术研究/源代码/arduino/Arduino红外避障小车/car/car.ino",
+		"/F/技术研究/源代码/arduino/Arduino代码例程/led/流星雨.c",
+		"/F/技术研究/源代码/arduino/Arduino代码例程/led/Blink/Blink.ino",
+		"/F/技术研究/源代码/arduino/Arduino代码例程/led/breathLED/breathLED_A/breathLED_A.ino",
+		"/f/Users/WJ/Desktop/AAA.ino",
+		"/F/Users/WJ/Desktop/aaa.c",
+		"/F/技术研究/源代码/arduino/Arduino代码例程/led/X/A/A.ino",
+		"/F/快盘/DATA/Source/MultiRotor/MultiRotor/MultiRotor/HardWareDriver/H/SYS_Init.h",
+		"/F/快盘/DATA/Source/MultiRotor/MultiRotor/MultiRotor/HardWareDriver/C/SYS_Init.c",
+		"/F/快盘/DATA/Source/MultiRotor/README.md",
+		"/F/快盘/DATA/Source/MultiRotor/MultiRotor/MultiRotor/HardWareDriver/C/sysinit.c",
+		"/F/快盘/DATA/Source/MultiRotor/MultiRotor/MultiRotor/HardWareDriver/H/sysinit.h",
+		"/F/快盘/DATA/Source/MultiRotor/MultiRotor/MultiRotor/HardWareDriver/H/UART1.h",
+		"/F/MultiRotor/MultiRotor/HardWareDriver/C/Led.c",
+		"/F/MultiRotor/MultiRotor/HardWareDriver/H/Led.h",
+		"/F/MultiRotor/MultiRotor/HardWareDriver/C/sysinit.c",
+		"/F/MultiRotor/MultiRotor/HardWareDriver/H/UART1.h",
+		"/F/快盘/DATA/Source/MultiRotor/MultiRotor/MultiRotor/HardWareDriver/C/UART1.c",
+		"/F/MultiRotor/MultiRotor/HardWareDriver/C/UART1.c",
 		"/F/快盘/DATA/Source/Embedded/STM32/crazepony-firmware-none-5.2/HardWareDriver/UART1.c",
 		"/F/快盘/DATA/Source/Embedded/STM32/crazepony-firmware-none-5.2/HardWareDriver/UART1.h",
-		"/F/快盘/DATA/Source/MultiRotor/README.md",
 		"/C/Users/WJ/AppData/Roaming/Typora/conf/conf.user.json",
 		"/D/Program Files (x86)/Typora/locales/zh-CN.pak",
 		"/D/Program Files (x86)/Microsoft Visual Studio 14.0/Common7/IDE/Extensions/Microsoft/Web Tools/External/bower/node_modules/mout/doc/array.md",
@@ -737,28 +710,7 @@
 		"/C/Users/WJ/AppData/Local/Temp/Rar$DIa0.646/JavaC.sublime-build",
 		"/C/Users/WJ/AppData/Local/Temp/Rar$DIa0.924/init.c",
 		"/C/Users/WJ/AppData/Local/Temp/Rar$DIa0.738/apply.h",
-		"/C/Users/WJ/AppData/Local/Temp/Rar$DIa0.183/task.c",
-		"/C/Users/WJ/AppData/Local/Temp/Rar$DIa0.883/shell.c",
-		"/C/Users/WJ/AppData/Local/Temp/Rar$DIa0.683/driver.h",
-		"/C/Users/WJ/AppData/Local/Temp/Rar$DIa0.627/main.c",
-		"/C/Users/WJ/AppData/Local/Temp/Rar$DIa0.874/STC12C5410AD.H",
-		"/C/Users/WJ/AppData/Local/Temp/Rar$DIa0.816/oled.c",
-		"/C/Users/WJ/AppData/Local/Temp/Rar$DIa0.666/ssd1303.h",
-		"/C/Users/WJ/AppData/Local/Temp/Rar$DIa0.112/oledtest.c",
-		"/C/Users/WJ/AppData/Local/Temp/Rar$DIa0.950/ds18b20.h",
-		"/C/Users/WJ/AppData/Local/Temp/Rar$DIa0.709/oled.h",
-		"/F/快盘/文档资料/学校/郑州轻工业学院/创新实验室/归档/大学生电子设计大赛/电赛/2015-8-12/0.9寸-IIC-OLED显示屏新资料(SSD1306)(1)/STM32例程(STM32F103C8T6)/I2C_SSD1306_STM32(HW)/User/OLED_I2C.h",
-		"/F/快盘/文档资料/学校/郑州轻工业学院/创新实验室/归档/大学生电子设计大赛/电赛/2015-8-12/0.9寸-IIC-OLED显示屏新资料(SSD1306)(1)/STM32例程(STM32F103C8T6)/I2C_SSD1306_STM32(HW)/User/OLED_I2C.c",
-		"/F/快盘/文档资料/学校/郑州轻工业学院/创新实验室/归档/大学生电子设计大赛/电赛/2015-8-12/0.9寸-IIC-OLED显示屏新资料(SSD1306)(1)/C51例程(STC89C52)/OLED12864.c",
-		"/F/快盘/文档资料/学校/郑州轻工业学院/创新实验室/归档/大学生电子设计大赛/电赛/2015-8-12/0.9寸-IIC-OLED显示屏新资料(SSD1306)(1)/C51例程(STC89C52)/LQ12864.h",
-		"/F/快盘/文档资料/学校/郑州轻工业学院/创新实验室/归档/大学生电子设计大赛/电赛/2015-8-12/OLED/oled.c",
-		"/F/快盘/文档资料/学校/郑州轻工业学院/创新实验室/归档/大学生电子设计大赛/电赛/2015-8-12/OLED/oled.h",
-		"/F/快盘/文档资料/学校/郑州轻工业学院/创新实验室/归档/大学生电子设计大赛/电赛/2015-8-12/oled1/OLED/oled.h",
-		"/F/快盘/文档资料/学校/郑州轻工业学院/创新实验室/归档/大学生电子设计大赛/电赛/2015-8-12/oled1/OLED/oled.c",
-		"/D/Program Files (x86)/TKStudio/Examples/MDK322/S3C2410_IIC/usr/iic_test.c",
-		"/C/Users/WJ/AppData/Local/Temp/Rar$DIa0.815/OLED.h",
-		"/F/技术研究/单片机/资料/光道资料/移动学习/AVR/atemga128/M128_OLED/LQ_12864.h",
-		"/F/技术研究/单片机/资料/光道资料/移动学习/AVR/atemga128/M128_OLED/LQ_12864.c"
+		"/C/Users/WJ/AppData/Local/Temp/Rar$DIa0.183/task.c"
 	],
 	"find":
 	{
@@ -939,24 +891,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "MultiRotor/HardWareDriver/H/UART1.h",
+					"file": "/D/Program Files (x86)/STMicroelectronics/STM32Cube/STM32CubeUpdater/STM32Cube_FW_F1_V1.2.0/Projects/STM32VL-Discovery/Examples/ADC/ADC_Regular_injected_groups/Src/main.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1090,
+						"buffer_size": 24177,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								438,
-								438
+								1281,
+								1281
 							]
 						],
 						"settings":
@@ -964,145 +916,56 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content"
-							],
-							"in_converting": true,
-							"incomplete_sync": null,
-							"origin_encoding": "GB2312",
-							"remote_loading": false,
-							"side_bar_folders_auto_load_folder": 1,
-							"synced": false,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 72.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "MultiRotor/HardWareDriver/C/sysinit.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 76,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								75,
-								75
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content"
+								"bh_angle_content"
 							],
 							"incomplete_sync": null,
 							"origin_encoding": "ASCII",
@@ -1110,279 +973,10 @@
 							"syntax": "Packages/C Improved/C Improved.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 4680.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "MultiRotor/HardWareDriver/H/Led.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1052,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								59,
-								33
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content"
-							],
-							"in_converting": true,
-							"incomplete_sync": null,
-							"origin_encoding": "GB2312",
-							"remote_loading": false,
-							"side_bar_folders_auto_load_folder": 1,
-							"synced": false,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "MultiRotor/HardWareDriver/C/Led.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2695,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1096,
-								1096
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content"
-							],
-							"in_converting": true,
-							"incomplete_sync": null,
-							"origin_encoding": "GB2312",
-							"remote_loading": false,
-							"side_bar_folders_auto_load_folder": 1,
-							"synced": false,
-							"syntax": "Packages/C Improved/C Improved.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 648.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "MultiRotor/HardWareDriver/C/UART1.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1641,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								894,
-								894
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content"
-							],
-							"in_converting": true,
-							"incomplete_sync": null,
-							"origin_encoding": "GB2312",
-							"remote_loading": false,
-							"side_bar_folders_auto_load_folder": 1,
-							"synced": false,
-							"syntax": "Packages/C Improved/C Improved.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 432.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1484,7 +1078,7 @@
 	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 220.0,
 	"status_bar_visible": true,
 	"template_settings":

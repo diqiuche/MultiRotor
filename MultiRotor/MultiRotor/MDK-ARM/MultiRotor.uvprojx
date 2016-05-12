@@ -552,6 +552,16 @@
               <FileType>1</FileType>
               <FilePath>..\HardWareDriver\C\UART1.c</FilePath>
             </File>
+            <File>
+              <FileName>SYS_Init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HardWareDriver\C\SYS_Init.c</FilePath>
+            </File>
+            <File>
+              <FileName>Battery.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HardWareDriver\C\Battery.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

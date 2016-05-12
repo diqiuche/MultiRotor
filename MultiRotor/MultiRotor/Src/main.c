@@ -46,9 +46,14 @@ SPI_HandleTypeDef hspi1;
 TIM_HandleTypeDef htim2;
 UART_HandleTypeDef huart1;
 
+__IO uint16_t uhADCxConvertedValue=0;
+float ADC_Value=0;
+float ADC_ConvertedValueLocal;
+
 int main(void)
 {
 	SYS_Init();
+HAL_ADCEx_Calibration_Start(&hadc1);
 
   while (1)
   {
@@ -57,13 +62,15 @@ int main(void)
     /* USER CODE BEGIN 3 */
     LEDCtrl.event = E_LOST_RC;
     LEDFSM();
-    HAL_Delay(1000);
-		printf ("Star ddd TEST\r\n");
-		HAL_UART_Transmit(&huart1,(uint8_t*)"hello word\n", 11,10);
-    // LEDA_troggle;
-    // HAL_Delay(100);
-    // LEDB_troggle;
-    // HAL_Delay(100);
+    HAL_Delay(250);
+		printf ("\r\n -------这是一个 ADC 测试------\r\n");
+		//HAL_UART_Transmit(&huart1,(uint8_t*)"hello word\n", 11,10);
+			HAL_ADC_Start(&hadc1);
+		uhADCxConvertedValue=HAL_ADC_GetValue(&hadc1);
+		ADC_Value=uhADCxConvertedValue*3300/4095;
+		printf("\r\n The current AD value = %.2f \r\n", ADC_Value/1000);
+		//ADC_ConvertedValueLocal=(float)ADC_ConvertedValue;
+		HAL_Delay(250);
   }
   /* USER CODE END 3 */
 }
