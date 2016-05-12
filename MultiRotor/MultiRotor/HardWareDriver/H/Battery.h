@@ -27,13 +27,13 @@ char   chargeSta;							//充电状态
 
 
 void BatteryCheckInit(void);	
-uint8_t Get_Adc_Average(uint8_t ch,uint8_t times);             
+uint16_t Get_Adc_Average(uint8_t times);             
 int GetBatteryAD(void);     
 void BatteryCheck(void);
 //实例化一个电压信息结构体
 extern Bat_Typedef Battery;
 
-
+uint16_t Get_Adc(void);
 #endif
                 
         

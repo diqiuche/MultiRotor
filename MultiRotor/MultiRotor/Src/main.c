@@ -53,7 +53,7 @@ float ADC_ConvertedValueLocal;
 int main(void)
 {
 	SYS_Init();
-HAL_ADCEx_Calibration_Start(&hadc1);
+//HAL_ADCEx_Calibration_Start(&hadc1);
 
   while (1)
   {
@@ -65,12 +65,15 @@ HAL_ADCEx_Calibration_Start(&hadc1);
     HAL_Delay(250);
 		printf ("\r\n -------这是一个 ADC 测试------\r\n");
 		//HAL_UART_Transmit(&huart1,(uint8_t*)"hello word\n", 11,10);
-			HAL_ADC_Start(&hadc1);
-		uhADCxConvertedValue=HAL_ADC_GetValue(&hadc1);
-		ADC_Value=uhADCxConvertedValue*3300/4095;
-		printf("\r\n The current AD value = %.2f \r\n", ADC_Value/1000);
+		//	HAL_ADC_Start(&hadc1);
+		//uhADCxConvertedValue=HAL_ADC_GetValue(&hadc1);
+		//ADC_Value=uhADCxConvertedValue*3300/4095;
+		//printf("\r\n The current AD value = %.2f \r\n", ADC_Value/1000);
+	//	printf("\r\n The current AD value = %.2f \r\n", (float)Get_Adc_Average(8));
 		//ADC_ConvertedValueLocal=(float)ADC_ConvertedValue;
-		HAL_Delay(250);
+		BatteryCheck();
+		printf("电压值:%.2fV",Battery.BatteryVal);
+		//HAL_Delay(250);
   }
   /* USER CODE END 3 */
 }

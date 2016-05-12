@@ -1,4 +1,6 @@
 #include "SYS_Init.h"
+#include "config.h"
+#include "uart1.h"
 
 extern ADC_HandleTypeDef hadc1;
 extern SPI_HandleTypeDef hspi1;
@@ -144,12 +146,12 @@ void MX_USART1_UART_Init(void)
 	huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
 	huart1.Init.OverSampling = UART_OVERSAMPLING_16;
 	HAL_UART_Init(&huart1);
-
+	printf("´®¿Ú1³õÊ¼»¯Íê³É£¬²¨ÌØÂÊ£º%d \r\n", huart1.Init.BaudRate);
 }
 
 void SYS_Init(void)
 {
-	/* MCU MCUèµ„æºé…ç½®----------------------------------------------------------*/
+	/* MCU MCU×ÊÔ´ÅäÖÃ----------------------------------------------------------*/
 	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
 	HAL_Init();
 
@@ -163,6 +165,7 @@ void SYS_Init(void)
 	MX_TIM2_Init();
 	MX_USART1_UART_Init();
 
-	//å¤–å›´è®¾å¤‡åˆå§‹åŒ–
+	//ÍâÎ§Éè±¸³õÊ¼»¯
 	LedInit();
+	BatteryCheckInit();
 }

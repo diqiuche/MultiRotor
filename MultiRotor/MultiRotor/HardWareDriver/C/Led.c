@@ -59,7 +59,7 @@ void LedInit(void)
 {
   LedA_off;
   LedB_off;
-  //printf("状态LED灯初始化完成...\r\n");
+  printf("状态LED灯初始化完成...\r\n");
 }
 
 //底层更新 ，10Hz

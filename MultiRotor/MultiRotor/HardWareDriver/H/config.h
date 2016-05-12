@@ -4,6 +4,7 @@
 #include "SYS_Init.h"
 #include "Led.h"
 #include "UART1.h"
+#include "Battery.h"
 // #include "BT.h"
 // #include "extern_variable.h"
 // #include "MPU6050.h"
@@ -20,7 +21,7 @@
 
 // #include "stm32f10x_usart.h"
 // #include "ReceiveData.h"
-// #include "Battery.h"
+ 
 // #include "DMP.h"
 // #include "Battery.h"
 // #include "HMC5883L.h"
