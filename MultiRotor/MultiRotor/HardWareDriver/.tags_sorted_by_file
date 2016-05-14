@@ -1,0 +1,105 @@
+ANO_DT_Data_Exchange	C\ANO_DT.c	/^void ANO_DT_Data_Exchange(void)$/;"	f
+ANO_DT_Data_Receive_Anl	C\ANO_DT.c	/^void ANO_DT_Data_Receive_Anl(u8 *data_buf,u8 num)$/;"	f
+ANO_DT_Data_Receive_Prepare	C\ANO_DT.c	/^void ANO_DT_Data_Receive_Prepare(u8 data)$/;"	f
+ANO_DT_Send_Check	C\ANO_DT.c	/^static void ANO_DT_Send_Check(u8 head, u8 check_sum)$/;"	f	file:
+ANO_DT_Send_Data	C\ANO_DT.c	/^void ANO_DT_Send_Data(u8 *dataToSend , u8 length)$/;"	f
+ANO_DT_Send_MotoPWM	C\ANO_DT.c	/^void ANO_DT_Send_MotoPWM(u16 m_1,u16 m_2,u16 m_3,u16 m_4,u16 m_5,u16 m_6,u16 m_7,u16 m_8)$/;"	f
+ANO_DT_Send_PID	C\ANO_DT.c	/^void ANO_DT_Send_PID(u8 group,float p1_p,float p1_i,float p1_d,float p2_p,float p2_i,float p2_d,float p3_p,float p3_i,float p3_d)$/;"	f
+ANO_DT_Send_Power	C\ANO_DT.c	/^void ANO_DT_Send_Power(u16 votage, u16 current)$/;"	f
+ANO_DT_Send_RCData	C\ANO_DT.c	/^void ANO_DT_Send_RCData(u16 thr,u16 yaw,u16 rol,u16 pit,u16 aux1,u16 aux2,u16 aux3,u16 aux4,u16 aux5,u16 aux6)$/;"	f
+ANO_DT_Send_Senser	C\ANO_DT.c	/^void ANO_DT_Send_Senser(s16 a_x,s16 a_y,s16 a_z,s16 g_x,s16 g_y,s16 g_z,s16 m_x,s16 m_y,s16 m_z,s32 bar)$/;"	f
+ANO_DT_Send_Status	C\ANO_DT.c	/^void ANO_DT_Send_Status(float angle_rol, float angle_pit, float angle_yaw, s32 alt, u8 fly_model, u8 armed)$/;"	f
+ANO_DT_Send_Version	C\ANO_DT.c	/^void ANO_DT_Send_Version(u8 hardware_type, u16 hardware_ver,u16 software_ver,u16 protocol_ver,u16 bootloader_ver)$/;"	f
+BYTE0	C\ANO_DT.c	23;"	d	file:
+BYTE1	C\ANO_DT.c	24;"	d	file:
+BYTE2	C\ANO_DT.c	25;"	d	file:
+BYTE3	C\ANO_DT.c	26;"	d	file:
+data_to_send	C\ANO_DT.c	/^u8 data_to_send[50];	\/\/�������ݻ���$/;"	v
+f	C\ANO_DT.c	/^dt_flag_t f;					\/\/��Ҫ�������ݵı�־$/;"	v
+Battery	C\Battery.c	/^Bat_Typedef Battery;$/;"	v
+BatteryCheck	C\Battery.c	/^void BatteryCheck(void)$/;"	f
+BatteryCheckInit	C\Battery.c	/^void BatteryCheckInit()$/;"	f
+FLY_ENABLE	C\Battery.c	/^uint8_t FLY_ENABLE=0;\/\/����ʹ�ܶ�  7\/-5    14\/15$/;"	v
+GetBatteryAD	C\Battery.c	/^int GetBatteryAD()$/;"	f
+Get_Adc	C\Battery.c	/^uint16_t Get_Adc()$/;"	f
+Get_Adc_Average	C\Battery.c	/^uint16_t Get_Adc_Average(uint8_t times)$/;"	f
+LEDBuf	C\Led.c	/^LEDBuf_t LEDBuf;$/;"	v
+LEDCtrl	C\Led.c	/^LED_t LEDCtrl;$/;"	v
+LEDFSM	C\Led.c	/^void LEDFSM(void)$/;"	f
+LEDReflash	C\Led.c	/^void LEDReflash(void)$/;"	f
+LedInit	C\Led.c	/^void LedInit(void)$/;"	f
+MX_ADC1_Init	C\SYS_Init.c	/^void MX_ADC1_Init(void)$/;"	f
+MX_GPIO_Init	C\SYS_Init.c	/^void MX_GPIO_Init(void)$/;"	f
+MX_SPI1_Init	C\SYS_Init.c	/^void MX_SPI1_Init(void)$/;"	f
+MX_TIM2_Init	C\SYS_Init.c	/^void MX_TIM2_Init(void)$/;"	f
+MX_USART1_UART_Init	C\SYS_Init.c	/^void MX_USART1_UART_Init(void)$/;"	f
+SYS_Init	C\SYS_Init.c	/^void SYS_Init(void)$/;"	f
+SystemClock_Config	C\SYS_Init.c	/^void SystemClock_Config(void)$/;"	f
+PUTCHAR_PROTOTYPE	C\UART1.c	39;"	d	file:
+PUTCHAR_PROTOTYPE	C\UART1.c	41;"	d	file:
+_DATA_TRANSFER_H	H\ANO_DT.h	2;"	d
+dt_flag_t	H\ANO_DT.h	/^}dt_flag_t;$/;"	t	typeref:struct:__anon1
+send_motopwm	H\ANO_DT.h	/^		u8 send_motopwm;$/;"	m	struct:__anon1
+send_offset	H\ANO_DT.h	/^		u8 send_offset;$/;"	m	struct:__anon1
+send_pid1	H\ANO_DT.h	/^		u8 send_pid1;$/;"	m	struct:__anon1
+send_pid2	H\ANO_DT.h	/^		u8 send_pid2;$/;"	m	struct:__anon1
+send_pid3	H\ANO_DT.h	/^		u8 send_pid3;$/;"	m	struct:__anon1
+send_pid4	H\ANO_DT.h	/^		u8 send_pid4;$/;"	m	struct:__anon1
+send_pid5	H\ANO_DT.h	/^		u8 send_pid5;$/;"	m	struct:__anon1
+send_pid6	H\ANO_DT.h	/^		u8 send_pid6;$/;"	m	struct:__anon1
+send_power	H\ANO_DT.h	/^		u8 send_power;$/;"	m	struct:__anon1
+send_rcdata	H\ANO_DT.h	/^		u8 send_rcdata;$/;"	m	struct:__anon1
+send_senser	H\ANO_DT.h	/^		u8 send_senser;$/;"	m	struct:__anon1
+send_status	H\ANO_DT.h	/^		u8 send_status;$/;"	m	struct:__anon1
+send_version	H\ANO_DT.h	/^		u8 send_version;$/;"	m	struct:__anon1
+ADRef	H\Battery.h	/^float  ADRef;                 \/\/AD�ο�Դ��ѹ�������ǵ�Ƭ�������ѹ��һ����3.3V���ң�Ҫʵ��$/;"	m	struct:__anon2
+ADinput	H\Battery.h	/^float  ADinput;               \/\/AD���������ѹ--->R15��R17�����ĺ��̵�ѹ$/;"	m	struct:__anon2
+BAT_ALARM_VAL	H\Battery.h	7;"	d
+BAT_CHG_VAL	H\Battery.h	8;"	d
+BAT_CHK_PRD	H\Battery.h	6;"	d
+BatReal	H\Battery.h	/^float  BatReal;               \/\/��ص�ʵ�ʵ�ѹ�������ñ���$/;"	m	struct:__anon2
+Bat_K	H\Battery.h	/^float  Bat_K;                 \/\/�����ѹֵϵ�������ڵ�ѹУ׼$/;"	m	struct:__anon2
+Bat_Typedef	H\Battery.h	/^}Bat_Typedef;$/;"	t	typeref:struct:__anon2
+BatteryAD	H\Battery.h	/^int    BatteryAD;             \/\/��ѹADֵ$/;"	m	struct:__anon2
+BatteryADmin	H\Battery.h	/^int    BatteryADmin;          \/\/��ѹ����$/;"	m	struct:__anon2
+BatteryVal	H\Battery.h	/^float  BatteryVal;            \/\/��ѹʵ��ֵ$/;"	m	struct:__anon2
+_Battery_H_	H\Battery.h	2;"	d
+alarm	H\Battery.h	/^char   alarm;									\/\/����λ$/;"	m	struct:__anon2
+chargeSta	H\Battery.h	/^char   chargeSta;							\/\/���״̬$/;"	m	struct:__anon2
+A	H\Led.h	/^		uint8_t A        	: 1;$/;"	m	struct:__anon3::__anon4
+B	H\Led.h	/^		uint8_t B        	: 1;$/;"	m	struct:__anon3::__anon4
+E_AUTO_LANDED	H\Led.h	15;"	d
+E_BAT_LOW	H\Led.h	12;"	d
+E_BatChg	H\Led.h	16;"	d
+E_CALI	H\Led.h	11;"	d
+E_CALI_FAIL	H\Led.h	13;"	d
+E_LOST_RC	H\Led.h	14;"	d
+E_READY	H\Led.h	10;"	d
+LA	H\Led.h	7;"	d
+LB	H\Led.h	8;"	d
+LEDA_troggle	H\Led.h	41;"	d
+LEDB_troggle	H\Led.h	42;"	d
+LEDBuf_t	H\Led.h	/^} LEDBuf_t;$/;"	t	typeref:union:__anon3
+LED_NUM	H\Led.h	6;"	d
+LED_t	H\Led.h	/^} LED_t;$/;"	t	typeref:struct:Led_tt
+LedA_off	H\Led.h	36;"	d
+LedA_on	H\Led.h	35;"	d
+LedB_off	H\Led.h	39;"	d
+LedB_on	H\Led.h	38;"	d
+Led_tt	H\Led.h	/^typedef struct Led_tt$/;"	s
+_Led_H_	H\Led.h	2;"	d
+bits	H\Led.h	/^	} bits;$/;"	m	union:__anon3	typeref:struct:__anon3::__anon4
+byte	H\Led.h	/^	uint8_t byte;$/;"	m	union:__anon3
+cnt	H\Led.h	/^	uint16_t cnt;$/;"	m	struct:Led_tt
+event	H\Led.h	/^	uint8_t  event;$/;"	m	struct:Led_tt
+reserved	H\Led.h	/^		uint8_t reserved 	: 2;$/;"	m	struct:__anon3::__anon4
+state	H\Led.h	/^	uint8_t  state;$/;"	m	struct:Led_tt
+__SYS_Init_H	H\SYS_Init.h	2;"	d
+__UART1_H_	H\UART1.h	2;"	d
+__config_H	H\config.h	2;"	d
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/

@@ -62,8 +62,8 @@ int main(void)
     /* USER CODE BEGIN 3 */
     LEDCtrl.event = E_LOST_RC;
     LEDFSM();
-    HAL_Delay(250);
-		printf ("\r\n -------这是一个 ADC 测试------\r\n");
+    HAL_Delay(10);
+	//	printf ("\r\n -------这是一个 ADC 测试------\r\n");
 		//HAL_UART_Transmit(&huart1,(uint8_t*)"hello word\n", 11,10);
 		//	HAL_ADC_Start(&hadc1);
 		//uhADCxConvertedValue=HAL_ADC_GetValue(&hadc1);
@@ -72,7 +72,9 @@ int main(void)
 	//	printf("\r\n The current AD value = %.2f \r\n", (float)Get_Adc_Average(8));
 		//ADC_ConvertedValueLocal=(float)ADC_ConvertedValue;
 		BatteryCheck();
-		printf("电压值:%.2fV",Battery.BatteryVal);
+		//printf("电压值:%.2fV",Battery.BatteryVal);
+		//ANO_DT_Send_Power(Battery.BatteryVal*100,100);
+		ANO_DT_Data_Exchange();
 		//HAL_Delay(250);
   }
   /* USER CODE END 3 */

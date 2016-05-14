@@ -562,6 +562,11 @@
               <FileType>1</FileType>
               <FilePath>..\HardWareDriver\C\Battery.c</FilePath>
             </File>
+            <File>
+              <FileName>ANO_DT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HardWareDriver\C\ANO_DT.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
